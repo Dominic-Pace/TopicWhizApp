@@ -5,8 +5,7 @@ import {
     StyleSheet
 } from 'react-native';
 
-module.exports = React.createClass({
-
+export default class SignIn extends Component {
     render() {
         return (
             <View style={styles.container}>
@@ -14,7 +13,7 @@ module.exports = React.createClass({
             </View>
         )
     }
-})
+}
 
 const styles = StyleSheet.create({
     container: {
