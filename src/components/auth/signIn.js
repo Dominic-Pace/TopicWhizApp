@@ -7,19 +7,45 @@ import {
     StyleSheet
 } from 'react-native';
 
+import styles from './../../styles';
+import {firebaseApp} from './authentication'
+
+
 export default class signIn extends React.Component {
 
     constructor(props, context) {
         super(props, context);
         this.state ={
             email: '',
-            password: ''
-        };
-    };
+            password: '',
+            error: ''
+        }
+    }
+
+    componentDidMount() {
+        firebaseApp.auth().onAuthStateChanged(user => {
+            if(user) {
+                console.log('user', user);
+
+                //Navigate to homepage
+            }
+        })
+    }
+
+    signIn() {
+        let {email, password} = this.state;
+
+        firebaseApp.auth().signInWithEmailAndPassword(email, password)
+            .catch(error => {
+                console.log('error', error.message);
+                this.setState({error: error.message})
+            })
+    }
 
     render() {
         return (
             <View style={styles.container}>
+                <Text style={styles.error}>{this.state.error}</Text>
                 <TextInput
                     placeholder='Email'
                     style={styles.input}
@@ -29,8 +55,12 @@ export default class signIn extends React.Component {
                     placeholder='Password'
                     style={styles.input}
                     onChangeText={(text) => this.setState({password: text})}
+                    secureTextEntry={true}
                 />
-                <TouchableOpacity style={styles.buttonContainer}>
+                <TouchableOpacity
+                    style={styles.buttonContainer}
+                    onPress={() => this.signIn()}
+                >
                     <Text style={styles.button}>Sign In</Text>
                 </TouchableOpacity>
                 <View style={styles.links}>
@@ -48,42 +78,3 @@ export default class signIn extends React.Component {
         )
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        padding: 40
-    },
-
-    input: {
-        height: 50,
-        borderColor: '#000',
-        borderWidth: 1,
-        borderRadius: 5,
-        margin: 2,
-        textAlign: 'center'
-    },
-
-    buttonContainer: {
-        justifyContent: 'center',
-        height: 50,
-        borderColor: '#000',
-        borderWidth: 1,
-        borderRadius: 5,
-        margin: 2
-    },
-
-    button: {
-        textAlign: 'center'
-    },
-
-    links: {
-        flexDirection: 'row',
-        justifyContent: 'space-between'
-    },
-
-    link: {
-        color: '#0000ff'
-    }
-})
