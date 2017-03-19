@@ -10,6 +10,14 @@ const routes = {
 };
 
 export default class Main extends Component {
+    render() {
+        return (
+            <Navigator
+                initialRoute={{name: 'signIn'}}
+                renderScene={this.renderScene}
+            />
+        )
+    }
 
     renderScene(route, navigator) {
         let Component = routes[route.name];
@@ -17,15 +25,6 @@ export default class Main extends Component {
         return (
             <Component
                 navigator={navigator}
-            />
-        )
-    }
-
-    render() {
-        return (
-            <Navigator
-                initialRoute={{name: 'signIn'}}
-                renderScene={this.renderScene}
             />
         )
     }
