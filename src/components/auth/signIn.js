@@ -18,7 +18,7 @@ export default class signIn extends React.Component {
         this.state ={
             email: '',
             password: '',
-            error: ''
+            result: ''
         }
     }
 
@@ -37,15 +37,14 @@ export default class signIn extends React.Component {
 
         firebaseApp.auth().signInWithEmailAndPassword(email, password)
             .catch(error => {
-                console.log('error', error.message);
-                this.setState({error: error.message})
+                this.setState({result: error.message})
             })
     }
 
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.error}>{this.state.error}</Text>
+                <Text style={styles.error}>{this.state.result}</Text>
                 <TextInput
                     placeholder='Email'
                     style={styles.input}
