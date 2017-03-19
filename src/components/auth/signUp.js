@@ -7,7 +7,7 @@ import {
     StyleSheet
 } from 'react-native';
 
-export default class signIn extends React.Component {
+export default class signUp extends React.Component {
 
     constructor(props, context) {
         super(props, context);
@@ -34,14 +34,8 @@ export default class signIn extends React.Component {
                     <Text style={styles.button}>Sign In</Text>
                 </TouchableOpacity>
                 <View style={styles.links}>
-                    <TouchableOpacity>
-                        <Text style={styles.link}>Forgot Password?</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={() => {
-                            this.props.navigator.push({name: 'signUp'})
-                        }}>
-                        <Text style={styles.link}>Sign Up</Text>
+                    <TouchableOpacity onPress={() => this.props.navigator.pop()}>
+                        <Text style={styles.link}>Already a member? Sign In</Text>
                     </TouchableOpacity>
                 </View>
             </View>
