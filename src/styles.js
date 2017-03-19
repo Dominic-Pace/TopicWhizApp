@@ -1,16 +1,22 @@
 import { StyleSheet } from 'react-native';
 
+const blue= '#90caf9';
+const navy = '#1a237e';
+const white = '#fff';
+const black = '#000';
+
 module.exports = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
         padding: 40,
-        backgroundColor: '#fff'
+        backgroundColor: blue
     },
 
     input: {
+        backgroundColor: white,
         height: 50,
-        borderColor: '#000',
+        borderColor: black,
         borderWidth: 1,
         borderRadius: 5,
         margin: 2,
@@ -18,9 +24,10 @@ module.exports = StyleSheet.create({
     },
 
     buttonContainer: {
+        backgroundColor: white,
         justifyContent: 'center',
         height: 50,
-        borderColor: '#000',
+        borderColor: black,
         borderWidth: 1,
         borderRadius: 5,
         margin: 2
@@ -36,7 +43,7 @@ module.exports = StyleSheet.create({
     },
 
     link: {
-        color: '#0000ff'
+        color: navy
     },
 
     error: {

@@ -5,10 +5,12 @@ import {
 
 import signIn from './components/auth/signIn';
 import signUp from './components/auth/signUp';
+import topics from './components/topics';
 
 const routes = {
     signIn,
-    signUp
+    signUp,
+    topics
 };
 
 export default class Main extends Component {
