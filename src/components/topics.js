@@ -15,8 +15,19 @@ export default class topics extends Component {
         super(props, context);
         this.state ={
             displayName: ''
-        };
-    };
+        }
+    }
+
+    componentDidMount() {
+        let user = firebaseApp.auth().currentUser;
+
+        if (!user.displayName) {
+            this.props.navigator.push({name: 'chooseName'});
+
+        } else {
+            this.setState({displayName: user.displayName})
+        }
+    }
 
     signOut() {
         // sign out the user
