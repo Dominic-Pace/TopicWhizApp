@@ -49,5 +49,23 @@ module.exports = StyleSheet.create({
     error: {
         color: 'red',
         textAlign: 'center'
+    },
+
+    //Topics Section
+    topics: {
+        flex: 1,
+        backgroundColor: blue
+    },
+
+    header: {
+        marginTop: 20,
+        padding: 10,
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+
+    body: {
+        flex: 24
     }
 });
