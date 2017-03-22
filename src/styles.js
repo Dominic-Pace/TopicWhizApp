@@ -52,7 +52,7 @@ module.exports = StyleSheet.create({
     },
 
     //Topics Section
-    topics: {
+    flexContainer: {
         flex: 1,
         backgroundColor: blue
     },
@@ -66,10 +66,44 @@ module.exports = StyleSheet.create({
     },
 
     body: {
-        flex: 24
+        flex: 24,
+        paddingRight: 20,
+        paddingLeft: 20
     },
 
     title: {
         textAlign: 'center'
+    },
+
+    //List Section
+    list: {
+        flex: 1
+    },
+    row: {
+        alignItems: 'center',
+        backgroundColor: white,
+        borderColor: black,
+        borderWidth: 1,
+        borderRadius: 5,
+        margin: 2,
+        padding: 10
+    },
+    rowTitle: {
+        fontWeight: 'bold'
+    },
+
+
+    //Detail Section
+    detailTitle: {
+        textAlign: 'center',
+        fontSize: 20,
+        fontWeight: 'bold'
+    },
+    detailSubtitle: {
+        textAlign: 'center',
+        fontSize: 14
+    },
+    comment: {
+        color: '#777'
     }
 });

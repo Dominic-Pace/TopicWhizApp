@@ -14,7 +14,7 @@ export default class signUp extends React.Component {
 
     constructor(props, context) {
         super(props, context);
-        this.state ={
+        this.state = {
             email: '',
             password: '',
             confirmPassword: '',
